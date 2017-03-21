@@ -31,11 +31,11 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile("org.springframework.boot:spring-boot-devtools")
-	compile('org.flywaydb:flyway-core')
+	//compile('org.flywaydb:flyway-core')
 
 	// jsoup HTML parser library @ http://jsoup.org/
 	compile 'org.jsoup:jsoup:1.10.2'
 
-	runtime('org.postgresql:postgresql')
+	//runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
