@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @Scope("prototype")
 public class simplexctrl {
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     String home() {
         return "Hello World!";
