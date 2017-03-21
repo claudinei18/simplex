@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="simplex">
+<meta charset="utf-8"/>
+<head>
+    <title>Angular - My Notes</title>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<h1>My Notes</h1>
+<div ng-controller="SimplexCtrl">
+    <input type="number" placeholder="Digite aqui o número de variáveis" ng-model="numVar"> <br/>
+    <div ng-show="numVar > 0">
+        Função de Otimização <br/>
+        F.O. ->
+        <select>
+            <option value="maximize">Maximize</option>
+            <option value="minimize">Minimize</option>
+        </select>
+        Z =
+        <div ng-repeat="n in range(numVar) track by $index ">
+            <input type="number"
+                   placeholder="Digite aqui o valor do multiplicador de x{{$index}}"
+                   ng-model="funcOtim.arrayValVar[$index]">x{{$index}}
+        </div> <br/>
+
+        Restrições
+        <div ng-repeat="item in restrictions">
+            Restrição: {{item.numRes}}
+            <div ng-repeat="n in range(numVar) track by $index ">
+                <input type="number"
+                       placeholder="Digite aqui o valor do multiplicador de x{{$index}}"
+                       ng-model="item.arrayValVar[$index]">x{{$index}}
+            </div>
+        </div> <br/>
+        <button ng-click="add()">New Item</button>
+        <button ng-click="runSimplex()">Run Simplex</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+</script>
+</body>
+</html>
