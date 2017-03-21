@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @Scope("prototype")
-@RequestMapping("/simplex")
 public class simplexctrl {
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping("/")
+    @ResponseBody
+    String home() {
+        return "Hello World!";
+    }
+
+    @RequestMapping(value = "/simplex", method = RequestMethod.POST)
     public void runSimplex(@RequestBody String in){
         System.out.println("chamou o metodo");
     }
