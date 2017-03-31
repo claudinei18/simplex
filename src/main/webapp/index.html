@@ -3,8 +3,45 @@
 <meta charset="utf-8"/>
 <head>
     <title>Angular - My Notes</title>
-    <script src="node_modules/angular/angular.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+
+    <script src="node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="node_modules/bootstrap-tagsinput/src/bootstrap-tagsinput.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
+
+
+
+
+
+
+    <!--<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">-->
+
+    <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <!--<script src="node_modules/angular/angular.min.js"></script>-->
+
+
+    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <!--<script src="bower_components/typehead.js"> </script>-->
+
+
+
     <script src="index.js"></script>
+
 </head>
 <body>
 <h1>My Notes</h1>
@@ -22,7 +59,8 @@
             <input type="number"
                    placeholder="Digite aqui o valor do multiplicador de x{{$index}}"
                    ng-model="funcOtim.arrayValVar[$index]">x{{$index}}
-        </div> <br/>
+        </div>
+        <br/>
 
         Restrições
         <div ng-repeat="item in restrictions">
@@ -32,15 +70,23 @@
                        placeholder="Digite aqui o valor do multiplicador de x{{$index}}"
                        ng-model="item.arrayValVar[$index]">x{{$index}}
             </div>
-        </div> <br/>
+            <select>
+                <option value="menorIgual"><=</option>
+                <option value="maiorIgual">>=</option>
+            </select>
+            <input type="number"
+                   placeholder="valor"
+                   ng-model="item.arrayValVar[$index]">
+            <button ng-click="deleteRestriction(item.numRes)">Delete this restriction</button>
+        </div>
+        <br/>
         <button ng-click="add()">New Item</button>
         <button ng-click="runSimplex()">Run Simplex</button>
     </div>
+
+    <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput"/>
+
 </div>
 
-<script type="text/javascript">
-
-
-</script>
 </body>
 </html>

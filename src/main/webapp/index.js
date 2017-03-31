@@ -12,10 +12,12 @@ angular.module('simplex', [])
         $scope.numRes = 0;
 
         $scope.runSimplex = function(){
-            var equations = {
-                in: "teste"
+            var parameters = {
+                json: JSON.stringify($scope.restrictions),
+                numVar: $scope.numVar
             }
-            $http.post('/simplex', equations).success(function (data) {
+
+            $http.post('/simplex', JSON.stringify($scope.restrictions)).then(function (data) {
                 $scope.status = data.data;
             });
         }
@@ -31,13 +33,14 @@ angular.module('simplex', [])
                 var emptyArray = new Array($scope.numVar);
                 $scope.restrictions.push({
                     arrayValVar: emptyArray,
-                    question: "",
-                    questionPlaceholder: "foo",
-                    text: "",
                     numRes: $scope.numRes
                 });
             }
-            console.log($scope.restrictions);
-            console.log($scope.funcOtim);
+            console.log(JSON.stringify($scope.restrictions))
         };
+
+        $scope.deleteRestriction = function(index){
+            console.log(index);
+            $scope.restrictions.splice(index-1, 1)
+        }
     })
